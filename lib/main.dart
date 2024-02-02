@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mymind_mobserv/firebase_options.dart';
 import 'package:mymind_mobserv/screens/advice_list_screen.dart';
 import 'package:mymind_mobserv/screens/appointment_list.dart';
+import 'package:mymind_mobserv/screens/grandma_screen.dart';
 import 'package:mymind_mobserv/screens/home_screen.dart';
 import 'package:mymind_mobserv/screens/joke_list_screen.dart';
 import 'package:mymind_mobserv/screens/login_screen.dart';
@@ -50,6 +51,8 @@ class MyApp extends StatelessWidget {
        '/appointment_list': (context) => const AppointmentListScreen(appointments: [],),
        '/positive_vibes_list': (context) => const PositiveVibesListScreen(),
         '/home': (context) => const HomeScreen(),
+        '/grandma': (context) => GrandMaScreen(),
+
 
         // Other routes if needed
       },

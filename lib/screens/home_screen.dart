@@ -50,7 +50,7 @@ class HomeScreenState extends State<HomeScreen> {
                       GestureDetector(
                         onTap: () {
                           // Navigate to the profile page
-                          Navigator.pushNamed(context, '/profile');
+                          Navigator.pushNamed(context, '/grandma');
                         },
                         child: const CircleAvatar(
                           radius: 30.0,
