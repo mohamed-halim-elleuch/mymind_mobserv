@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "304012450137",
+    "project_id": "my-mind-2dacb",
+    "storage_bucket": "my-mind-2dacb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304012450137:android:19289cbfd5b7ca9ede5448",
+        "android_client_info": {
+          "package_name": "com.example.mymind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3nH_zD1rQOLvijXsFuXXUTodAMBm_x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "304012450137-hjgoa06kejj2c6vkcn9opknn1pqk7b8d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mymind.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304012450137:android:13ae21dd957be541de5448",
+        "android_client_info": {
+          "package_name": "com.example.mymind_mobserv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3nH_zD1rQOLvijXsFuXXUTodAMBm_x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "304012450137-hjgoa06kejj2c6vkcn9opknn1pqk7b8d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mymind.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304012450137:android:b3909b944b89c490de5448",
+        "android_client_info": {
+          "package_name": "fr.eurecom.firebaseintro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn3nH_zD1rQOLvijXsFuXXUTodAMBm_x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304012450137-nv0ekpbki0khe5lrsng205d1tq66t1md.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "304012450137-hjgoa06kejj2c6vkcn9opknn1pqk7b8d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mymind.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
