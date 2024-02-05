@@ -14,7 +14,22 @@ ProfileScreenState createState() => ProfileScreenState();
 
 
 class ProfileScreenState extends State<ProfileScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  Future<String?> getUserName() async {
+    try {
+      User? user = _auth.currentUser;
+
+      if (user != null) {
+        return user.displayName;
+      } else {
+        return null; // User is not authenticated
+      }
+    } catch (e) {
+      print("Error fetching user name: $e");
+      return null;
+    }
+  }
   bool isLoggingOut = false;
 //onPressed: () => _signOut(context)
   Future<void> _signOut(BuildContext context) async {
@@ -102,11 +117,18 @@ Widget build(BuildContext context) {
               ],
             ),
           ),
-          const Text('Emma',style: TextStyle(
+      FutureBuilder<String?>(
+      future: getUserName(),
+  builder: (context, snapshot) {
+  if (snapshot.connectionState == ConnectionState.waiting) {
+  return CircularProgressIndicator(); // Loading indicator while fetching the user name
+  // Handle error
+  } else { return
+           Text(snapshot.data!,style: TextStyle(
             fontSize: 30.0,
             fontWeight: FontWeight.bold,
             color: Colors.black,
-          ),),
+          ),);}}),
           const Row(
             mainAxisSize: MainAxisSize.min,
             children: [

@@ -45,20 +45,14 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 60,),
               // Logo
               SizedBox(
                 width: 150.0,
@@ -81,7 +75,7 @@ class LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Email',
                     style: TextStyle(
-                        color: Colors.blue, // Change label color as needed
+                        color: Colors.purple, // Change label color as needed
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0
                     ),
@@ -98,10 +92,10 @@ class LoginScreenState extends State<LoginScreen> {
                   labelText: 'Email',
                   prefixIcon: const Icon(
                     Icons.person,
-                    color: Colors.blue,
+                    color: Colors.purple,
                   ),
                   labelStyle: const TextStyle(
-                    color: Colors.blueAccent,
+                    color: Colors.purple,
                   ),
                   filled: true,
                   fillColor: const Color(0x55F7A5ED),
@@ -119,7 +113,7 @@ class LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Password',
                     style: TextStyle(
-                        color: Colors.blue, // Change label color as needed
+                        color: Colors.purple, // Change label color as needed
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0
                     ),
@@ -135,13 +129,13 @@ class LoginScreenState extends State<LoginScreen> {
                   labelText: 'Password',
                   prefixIcon: const Icon(
                     Icons.lock,
-                    color: Colors.blue,
+                    color: Colors.purple,
                   ),
 
 
 
                   labelStyle: const TextStyle(
-                    color: Colors.blueAccent, // Change label color as needed
+                    color: Colors.purple, // Change label color as needed
                   ),
                   filled: true,
                   fillColor: const Color(0x55F7A5ED), // Change background color as needed
@@ -161,7 +155,7 @@ class LoginScreenState extends State<LoginScreen> {
                     // Handle forget password action
                   },
                   child: const Text('Forgot Password?',style: TextStyle(
-                      color: Colors.blue, // Change label color as needed
+                      color: Colors.purple, // Change label color as needed
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0
                   ),),
@@ -171,21 +165,21 @@ class LoginScreenState extends State<LoginScreen> {
 
               // Sign In button
               SizedBox(
-                width: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 1.8,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:  MaterialStateProperty.all<Color>(const Color(0xffF5F5F5)),
                     minimumSize: MaterialStateProperty.all(const Size(double.infinity / 2, 50.0)),
                   ),
                   onPressed: login,
-                  child: const Text('SIGN IN'),
+                  child: const Text('SIGN IN',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),),
                 ),
               ),
               const SizedBox(height: 20.0),
 
               // Sign Up button
               SizedBox(
-                width: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 1.8,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:  MaterialStateProperty.all<Color>(const Color(0xffF5F5F5)),
@@ -194,7 +188,7 @@ class LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, 'register');
                   },
-                  child: const Text('CREATE AN ACCOUNT'),
+                  child: const Text('CREATE AN ACCOUNT',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),),
                 ),
               ),
             ],

@@ -1,5 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mymind_mobserv/screens/all_challenges_screen.dart';
+import 'package:mymind_mobserv/screens/appointment_screen.dart';
+import 'package:mymind_mobserv/screens/challenges_screen.dart';
+import 'package:mymind_mobserv/screens/grandma_screen.dart';
+import 'package:mymind_mobserv/screens/ikigai_screen.dart';
+import 'package:mymind_mobserv/screens/reflection_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,6 +16,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<String?> getUserName() async {
+    try {
+      User? user = _auth.currentUser;
+
+      if (user != null) {
+        return user.displayName;
+      } else {
+        return null; // User is not authenticated
+      }
+    } catch (e) {
+      print("Error fetching user name: $e");
+      return null;
+    }
+  }
 
   int selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
@@ -50,7 +73,7 @@ class HomeScreenState extends State<HomeScreen> {
                       GestureDetector(
                         onTap: () {
                           // Navigate to the profile page
-                          Navigator.pushNamed(context, '/grandma');
+                          Navigator.pushNamed(context, '/profile');
                         },
                         child: const CircleAvatar(
                           radius: 30.0,
@@ -59,24 +82,30 @@ class HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(width: 20.0),
-                      GestureDetector(
-                        onTap: () {
-                          // Navigate to the profile page
-                          Navigator.pushNamed(context, '/profile');
-                        },
-                        child: const Text(
-                          'Emma', // Replace with the user's name
-                          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
+      FutureBuilder<String?>(
+        future: getUserName(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator(); // Loading indicator while fetching the user name
+           // Handle error
+          } else {
+            return GestureDetector(
+              onTap: () {
+                // Navigate to the profile page
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Text(
+                snapshot.data!, // Use the fetched user name here
+                style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+              ),
+            );
+          }
+        },
+      ),
+      ],
+    ),
                   // Icon in the other corner
-                  const Icon(
-                    Icons.lightbulb_outline, // Replace with the desired icon
-                    size: 30.0,
-                    color: Colors.black,
-                  ),
+
                 ],
               ),
               const SizedBox(height: 30.0),
@@ -88,35 +117,62 @@ class HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 padding: const EdgeInsets.all(20.0),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 30.0,
-                      backgroundImage: AssetImage(
-                          'assets/ikigai.png'), // Replace with your image
-                    ),
-                    SizedBox(height: 10.0, width: 100,),
-                    Text(
-                      'IKIGAI',
-                      style: TextStyle(
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                child: GestureDetector(
+                  onTap: () {
+                    // Navigate to the Challenges page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => IkigaiDiagram()),
+                    );
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 30.0,
+                        backgroundImage: AssetImage(
+                            'assets/ikigai.png'), // Replace with your image
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 10.0, width: 100,),
+                      Text(
+                        'IKIGAI',
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 50.0),
               Row(
                 children: [
                   Expanded(
-                    child: buildCard('Challenges', Icons.favorite_rounded, const Color(0xffF7A5ED)),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigate to the Challenges page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AllChallengesScreen()),
+                        );
+                      },
+                      child: buildCard('Challenges', Icons.favorite_rounded, const Color(0xffF7A5ED)),
+                    ),
                   ),
                   const SizedBox(width: 20.0),
                   Expanded(
-                    child: buildCard('Appointment', Icons.event_note_sharp, const Color(0xbbFCA629)),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigate to the Appointment page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AppointmentScreen()),
+                        );
+                      },
+                      child: buildCard('Appointment', Icons.event_note_sharp, const Color(0xbbFCA629)),
+                    ),
                   ),
                 ],
               ),
@@ -124,11 +180,29 @@ class HomeScreenState extends State<HomeScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: buildCard('Grandma recipe', Icons.food_bank_outlined, const Color(0xaaA2E64C)),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigate to the Grandma Recipe page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => GrandMaScreen()),
+                        );
+                      },
+                      child: buildCard('Grandma recipe', Icons.food_bank_outlined, const Color(0xaaA2E64C)),
+                    ),
                   ),
                   const SizedBox(width: 20.0),
                   Expanded(
-                    child: buildCard('Reflection', Icons.bookmark_add_rounded, const Color(0xccCEEAFF)),
+                    child: GestureDetector(
+                      onTap: () {
+                        // Navigate to the Reflection page
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ReflectionPage()),
+                        );
+                      },
+                      child: buildCard('Reflection', Icons.bookmark_add_rounded, const Color(0xccCEEAFF)),
+                    ),
                   ),
                 ],
               ),

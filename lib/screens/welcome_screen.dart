@@ -60,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
             Positioned(
               left: screenWidth * 0.11,
               top: screenHeight * 0.075,
-              child: Circle(color: Color.fromARGB(202, 247, 232, 246), radius: 60.0),
+              child: Circle(color: Color.fromARGB(202, 241, 239, 108), radius: 60.0),
             ),
             Positioned(
               left: screenWidth * 0.35,
@@ -301,7 +301,19 @@ class CircularCardHandState extends State<CircularCardHand> {
             ? Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            //const SizedBox(width:100.0),
+            const Row( mainAxisAlignment: MainAxisAlignment.center,
+                children: [const SizedBox(width:160.0),Text("How do you feel today?",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                // Adjust the font size as needed
+              ),
+            )
+            ]
+              ),
+            
+            const SizedBox(height:30.0),
             Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [const SizedBox(width:160.0),_buildCircularButton('Happy', Colors.blue,0, x: 50.0, y: 50.0),
                   const SizedBox(width:50.0),
@@ -370,23 +382,40 @@ class CircularCardHandState extends State<CircularCardHand> {
             updateCardContent(selectedMoodIndex);
           });
         },
-        child: Container(
-          width: 120,
-          height: 150,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: color,
-          ),
-          child: Center(
-            child: Text(
-              label,
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+        // child: Container(
+        //   width: 120,
+        //   height: 150,
+        //   decoration: BoxDecoration(
+        //     shape: BoxShape.circle,
+        //     color: color,
+        //   ),
+        //   child: Center(
+        //     child: Text(
+        //       label,
+        //       style: TextStyle(
+        //         color: Colors.white,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        child:Container(
+        //width: 130,
+        //height: 150,
+        decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: color,
         ),
+        child:
+
+        CircleAvatar(
+        radius: 60.0, // Adjust the radius as needed
+        backgroundImage: AssetImage("assets/${label}.jpeg"), // Replace with your image path
+        ),
+
+
+
+    )
       ),
     );
   }

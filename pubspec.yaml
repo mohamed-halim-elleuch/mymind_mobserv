@@ -40,6 +40,12 @@ dependencies:
   cloud_firestore: ^4.13.3
   firebase_database: ^10.0.1
   csv: ^5.1.1
+  intl: ^0.17.0
+  share: ^2.0.4
+  shared_preferences: ^2.0.10
+  custom_date_range_picker: ^1.0.6
+  url_launcher: ^6.2.4
+  flutter_local_notifications: ^16.3.2
 
 
 dev_dependencies:
@@ -74,6 +80,12 @@ flutter:
     - assets/logo.png
     - assets/emma.png
     - assets/converted_data.json
+    - assets/Sad.jpeg
+    - assets/Stressed.jpeg
+    - assets/Motivated.jpeg
+    - assets/Happy.jpeg
+    - assets/doctolib.png
+    - assets/grandma.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

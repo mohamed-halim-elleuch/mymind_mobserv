@@ -32,7 +32,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
         email: emailController.text,
         password: passwordController.text,
       );
-
+      await userCredential.user?.updateDisplayName(usernameController.text);
       // Add additional user data to Firestore
       /*await FirebaseFirestore.instance.collection('users').doc(userCredential.user!.uid).set({
         'username': usernameController.text,
@@ -104,7 +104,8 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                   child: const Text(
                     'SIGN UP',
                     style: TextStyle(
-                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17.0,
                     ),
                   ),
                 ),
@@ -131,7 +132,7 @@ class RegistrationScreenState extends State<RegistrationScreen> {
             Text(
               label,
               style: const TextStyle(
-                color: Colors.blue,
+                color: Colors.purple,
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
               ),
@@ -147,10 +148,10 @@ class RegistrationScreenState extends State<RegistrationScreen> {
             labelText: label,
             prefixIcon: Icon(
               icon,
-              color: Colors.blue,
+              color: Colors.purple,
             ),
             labelStyle: const TextStyle(
-              color: Colors.blueAccent,
+              color: Colors.purpleAccent,
             ),
             filled: true,
             fillColor: color,
