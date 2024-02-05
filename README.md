@@ -1,16 +1,37 @@
-# mymind_mobserv
+# Project Name
 
-A new Flutter project.
+**MYND**
 
-## Getting Started
+## Team Members
 
-This project is a starting point for a Flutter application.
+- Zaineb Benamar
+- Anis Amor
+- Hamouda Mtir
+- Mohamed Halim Elleuch
 
-A few resources to get you started if this is your first Flutter project:
+## About the App
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+MYND is a mobile application designed to empower users on their journey to better mental health. With features such as mood-boosting content, Ikigai-based challenges, grandma recipes and a reflective journal, the app provides a holistic approach to mental well-being.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tagline
+
+"Your daily dose of joy!"
+
+## Screenshots
+
+<img src="./images/welcome.jpg" alt="Screenshot 1" width="220"/> <img src="./images/welcome2.jpg" alt="Screenshot 2" width="220"/> <img src="./images/home.jpg" alt="Screenshot 3" width="220"/> <img src="./images/ikigai.jpg" alt="Screenshot 4" width="220"/> <img src="./images/recipes.jpg" alt="Screenshot 5" width="220"/>
+
+## Permissions Required
+
+The app requires the following permissions:
+- Internet Access
+- Calendar Access (for challenge follow up)
+
+## Data Safety Information
+
+Your privacy and data security are our top priorities. We ensure:
+- **Anonymity:** Personal data is anonymized for insights and trends.
+- **Secure Storage:** User data is securely stored, adhering to industry standards.
+- **No Third-Party Sales:** We do not sell your data to third parties.
+- **Opt-Out Option:** Users have the option to opt-out of data sharing for research.
+
